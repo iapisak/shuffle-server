@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const SpotifyWebApi = require('spotify-web-api-node')
+const LyricFinder = require('lyrics-finder')
 
 const credentials = {
     clientId: process.env.ID,
@@ -29,6 +30,12 @@ router.post('/refresh', (req, res) => {
                 accessToken: data.body.access_token,
                 expiresIn: data.body.expires_in}))
               .catch((err)=> res.json({ status: 400, data: err }))
+})
+
+router.get('/lyric/:artist/:title', async (req, res)=> {
+    const { artist, title } = req.params
+    const lyric = await LyricFinder(artist, title) || 'No Lyric Found'
+    res.json({ lyric })
 })
 
 module.exports = router
