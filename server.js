@@ -2,9 +2,9 @@ const express = require ('express')
 const app = express()
 const bodyParser = require ('body-parser')
 const cors = require('cors')
-const PORT = process.env.PORT
 require('dotenv').config()
 
+const PORT = process.env.PORT
 const routes = require('./routes/api')
 const corsOptions = {
     "Access-Control-Allow-Origin": ['http://localhost:3000', 'https://project-write-it.herokuapp.com'],
