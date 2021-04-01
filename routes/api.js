@@ -34,7 +34,7 @@ router.post('/refresh', (req, res) => {
 
 router.get('/lyric/:artist/:title', async (req, res)=> {
     const { artist, title } = req.params
-    const lyric = await LyricFinder(artist, title) || 'No Lyric Found'
+    const lyric = await LyricFinder(artist, title) || 'not found'
     res.json({ lyric })
 })
 
