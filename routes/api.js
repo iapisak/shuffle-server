@@ -4,9 +4,9 @@ const SpotifyWebApi = require('spotify-web-api-node')
 const LyricFinder = require('lyrics-finder')
 
 const credentials = {
-    clientId: 'e244682973e24a3caa0b3a29bb72f95a',
-    clientSecret: '98dba1cc2b28414ca854c3cdb7cd4c7f',
-    redirectUri: 'http://localhost:3000'
+    clientId: process.env.ID,
+    clientSecret: process.env.SECRET,
+    redirectUri: process.env.URI
   }
 
 router.post('/login', (req, res) => {
